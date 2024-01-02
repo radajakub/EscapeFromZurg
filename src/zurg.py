@@ -40,7 +40,6 @@ def dfs(limit: int, toys: list[Toy]):
 
     while len(stack):
         time, left, right, actions, direction, depth = stack.pop()
-        print(f'{"  " * depth}{time} {[x.name for x in left]} {[x.name for x in right]} {direction}')
         if len(left) == 0 and direction == 'right':
             solutions.append(actions)
             continue
