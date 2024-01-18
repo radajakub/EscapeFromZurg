@@ -41,7 +41,7 @@ def dfs(limit: int, toys: list[Toy]):
     while len(stack):
         time, left, right, actions, direction, depth = stack.pop()
         if len(left) == 0 and direction == 'right':
-            solutions.append(actions)
+            solutions.append((actions, time))
             continue
         if direction == 'left':
             for i in range(len(left)):
@@ -78,8 +78,8 @@ if __name__ == "__main__":
 
     solutions = dfs(time_limit, toys)
 
-    for solution in solutions:
-        print('Solution:')
+    for solution, cost in solutions:
+        print(f'Solution [{cost}]:')
         for action in solution:
             print(f'{action} -> ', end='')
         print()
