@@ -3,8 +3,15 @@
 % T - battery life span in time units
 % Toys - list of toys to move from left to right in the form [[toy1, time1], [toy2, time2], ...]
 % Sol - list of actions to perform in order to move all toys from left to right
+%
+% Solution is in a format of a list of actions that should be read from start to end
+%    (I consider a solution in the opposite order as a different solution)
+% An action is specified by a predicate left_to_right(Toys) or right_to_left(Toys) where Toys is a list of toy names of length 1 or 2
+%
 % Example query to run in SWI-Prolog:
 %   escape_zurg(60, [[buzz,5],[woody,10],[rex,20],[hamm,25]], Sol).
+% Example solution:
+%  Sol = [left_to_right([buzz, woody]), right_to_left([buzz]), left_to_right([rex, hamm]), right_to_left([woody]), left_to_right([buzz, woody])] 
 
 %% helper predicates for toys
 
